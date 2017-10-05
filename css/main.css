@@ -1,0 +1,11 @@
+.container {
+    background-color: yellowgreen;
+}
+
+.left-player {
+    background-color: green;
+}
+
+.right-player {
+    background-color: yellow;
+}
