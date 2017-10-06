@@ -1,29 +1,30 @@
-// var myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-//     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-//     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-//     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+var myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
-// Array.prototype.randomElement = function () {
-//     return this[Math.floor(Math.random() * this.length)]
-// }
+Array.prototype.randomElement = function () {
+    return this[Math.floor(Math.random() * this.length)]
+}
 
-// var playerOne;
-// var playerTwo;
+var playerOne = [];
+var playerTwo = [];
+var newDeck = [];
 
-// function createDecks() {
-//     var counter = 0;
-//     var hold = 0;
-//     for (var i = 0; i < myArray.length; i++) {
-//         if (!counter) {
-//             hold = myArray.splice(myArray.randomElement(), 1)
-//             playerOne.push(hold);
-//             counter = 1;
-//         } else {
-//             hold = myArray.splice(myArray.randomElement(), 1)
-//             playerTwo.push(hold);
-//             counter = 0;
-//         }
-//     }
-// }
+function createDeck() {
+    for (var i = 0; i < myArray.length; i++) {
+        newDeck.push(myArray.randomElement());
+    }
+    playerOne = newDeck.splice(0, 26);
+    playerTwo = newDeck.splice(0, 26);
+}
 
-// createDecks(); 
+createDeck();
+
+function drawCards() {
+    var playerOneMove, playerTwoMove;
+    playerOneMove = playerOne.randomElement();
+    console.log(playerOneMove);
+}
+
+drawCards();
