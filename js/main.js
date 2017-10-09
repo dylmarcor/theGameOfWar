@@ -43,12 +43,14 @@ function battle() {
         playerOne.push(p1)
         playerOne.push(p2)
         if (warChest.length > 0) { playerOne = playerOne.concat(warChest) }
+        warChest = [];
         checkWinner();
         console.log(holder);
     } else {
         playerTwo.push(p1)
         playerTwo.push(p2)
         if (warChest.length > 0) { playerTwo = playerTwo.concat(warChest) }
+        warChest = [];
         checkWinner();
         console.log(holder);
     }
