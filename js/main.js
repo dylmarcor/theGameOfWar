@@ -9,9 +9,14 @@ Array.prototype.randomElement = function () {
     return this[Math.floor(Math.random() * this.length)]
 }
 
+$('button').on('click', $('#reset'), resetBoard)
+$('button').on('click', $('#draw'), battle)
+
 var playerOne = [],
     playerTwo = [],
-    warChest = [];
+    warChest = [],
+    p1WinCounter = 0,
+    p2WinCounter = 0;
 
 function createDeck() {
     var hold = [];
@@ -26,6 +31,7 @@ function createDeck() {
 
 function battle() {
     checkWinner();
+    render();
     var p1 = playerOne.shift();
     var p2 = playerTwo.shift();
     if (p1 === p2) {
@@ -34,8 +40,12 @@ function battle() {
         } else {
             if (playerOne.length > 2) {
                 console.log("Player 1 wins!");
+                p1WinCounter++;
+                render();
             } else {
                 console.log("Player 2 wins!");
+                p2WinCounter++;
+                render();
             }
         }
     } else if (p1 > p2) {
@@ -66,8 +76,12 @@ function goToWar(p1, p2) {
 function checkWinner() {
     if (playerOne.length === 0) {
         console.log("Player 2 wins!")
+        p1WinCounter++;
+        render();
         return 0;
     } else if (playerTwo.length === 0) {
+        p2WinCounter++;
+        render();
         console.log("Player 1 wins!")
         return 1;
     } else {
@@ -75,8 +89,23 @@ function checkWinner() {
     }
 }
 
+function render() {
+    $('.left-player').html(playerOne[0])
+    $('.right-player').html(playerTwo[0])
+    $('.leftscore').html(parseInt(p1WinCounter))
+    $('.rightscore').html(parseInt(p2WinCounter))
+}
+
+function resetBoard() {
+    playerOne = [];
+    playerTwo = [];
+    warChest = [];
+    createDeck();
+}
+
 function init() {
     createDeck();
+    render();
 }
 
 init();
