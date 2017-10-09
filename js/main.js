@@ -1,7 +1,7 @@
-var startDeck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+var startDeck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+    2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+    2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+    2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
 // var startDeck = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -11,7 +11,6 @@ Array.prototype.randomElement = function () {
 
 var playerOne = [],
     playerTwo = [],
-    holder = [],
     warChest = [];
 
 function createDeck() {
@@ -40,19 +39,17 @@ function battle() {
             }
         }
     } else if (p1 > p2) {
+        if (warChest.length > 0) { playerOne = playerOne.concat(warChest) }
         playerOne.push(p1)
         playerOne.push(p2)
-        if (warChest.length > 0) { playerOne = playerOne.concat(warChest) }
         warChest = [];
         checkWinner();
-        console.log(holder);
     } else {
+        if (warChest.length > 0) { playerTwo = playerTwo.concat(warChest) }
         playerTwo.push(p1)
         playerTwo.push(p2)
-        if (warChest.length > 0) { playerTwo = playerTwo.concat(warChest) }
         warChest = [];
         checkWinner();
-        console.log(holder);
     }
 }
 
