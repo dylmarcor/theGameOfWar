@@ -10,21 +10,23 @@
     src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
-    <script src="js/main.js"></script>
+    <script defer src="js/main.js"></script>
 </head>
 <body>
     <div class="container">
-            <div class="leftscore">Left Score</div>
+            <div class="leftscore">Player 1:<br><span id="p1win">0</span></div>
         <div class="left-player">
             Left Player Card
-            
+            <div class="left-deck">0</div>
         </div>
-        <div class="battlefield">BATTLE!</div>
+        
+        <div class="battlefield"></div>
         <div class="right-player">
             Right Player Card
-            
+            <div class="right-deck">0</div>
         </div>
-        <div class="rightscore">Right Score</div>
+        
+        <div class="rightscore">Player 2:<br><span id="p2win">0</span></div>
     </div>
     
     <footer class="container-reset"><button class="button" id="draw">DRAW</button>

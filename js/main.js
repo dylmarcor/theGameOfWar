@@ -1,7 +1,16 @@
+// var cat = "cat"
+
+// $(function() {
+
 var startDeck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
     2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
     2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
     2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+
+// var displayDeck = [".dA", ".dK", ".dQ", ".dJ", ".d10", ".d09", ".d08", ".d07", ".d06", ".d05", ".d04", ".d04", ".d03", ".d02",
+//     ".hA", ".hK", ".hQ", ".hJ", ".h10", ".h09", ".h08", ".h07", ".h06", ".h05", ".h04", ".h04", ".h03", ".h02",
+//     ".sA", ".sK", ".sQ", ".sJ", ".s10", ".s09", ".s08", ".s07", ".s06", ".s05", ".s04", ".s04", ".s03", ".s02",
+//     ".cA", ".cK", ".cQ", ".cJ", ".c10", ".c09", ".c08", ".c07", ".c06", ".c05", ".c04", ".c04", ".c03", ".c02",]
 
 // var startDeck = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -9,8 +18,8 @@ Array.prototype.randomElement = function () {
     return this[Math.floor(Math.random() * this.length)]
 }
 
-$('button').on('click', $('#reset'), resetBoard)
-$('button').on('click', $('#draw'), battle)
+$('#reset').on('click', resetBoard)
+$('#draw').on('click', battle)
 
 var playerOne = [],
     playerTwo = [],
@@ -40,10 +49,12 @@ function battle() {
         } else {
             if (playerOne.length > 2) {
                 console.log("Player 1 wins!");
+                $('#draw').attr('disabled','disabled')
                 p1WinCounter++;
                 render();
             } else {
                 console.log("Player 2 wins!");
+                $('#draw').attr('disabled','disabled')
                 p2WinCounter++;
                 render();
             }
@@ -75,37 +86,44 @@ function goToWar(p1, p2) {
 
 function checkWinner() {
     if (playerOne.length === 0) {
+        $('#draw').prop('disabled', false)
         console.log("Player 2 wins!")
-        p1WinCounter++;
-        render();
-        return 0;
-    } else if (playerTwo.length === 0) {
         p2WinCounter++;
         render();
-        console.log("Player 1 wins!")
         return 1;
-    } else {
+    } else if (playerTwo.length === 0) {
+        $('#draw').prop('disabled', false)
+        p1WinCounter++;
+        render();
+        console.log("Player 1 wins!")
         return 2;
+    } else {
+        return 0;
     }
 }
 
 function render() {
+    $('.right-deck').html(playerTwo.length)
+    $('.left-deck').html(playerOne.length)
     $('.left-player').html(playerOne[0])
     $('.right-player').html(playerTwo[0])
-    $('.leftscore').html(parseInt(p1WinCounter))
-    $('.rightscore').html(parseInt(p2WinCounter))
+    $('#p1win').html(parseInt(p1WinCounter))
+    $('#p2win').html(parseInt(p2WinCounter))
 }
 
 function resetBoard() {
+    console.log("Board Reset")
     playerOne = [];
     playerTwo = [];
     warChest = [];
-    createDeck();
-}
-
-function init() {
-    createDeck();
+    $('#draw').prop('disabled', false)
+    init();
     render();
 }
 
-init();
+function init() {
+    createDeck()
+}
+
+init()
+// })

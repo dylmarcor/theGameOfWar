@@ -38,15 +38,31 @@ button {
     width: 200px;
 }
 
-.rightscore {
+.right-deck {
     height: 50px;
     width: 50px;
     text-align: center;
 }
 
-.leftscore {
+.left-deck {
     height: 50px;
     width: 50px;
+    text-align: center;
+}
+
+.rightscore {
+    font-size: 2.5em;
+    padding: 20px;
+    height: 100px;
+    width: 150px;
+    text-align: center;
+}
+
+.leftscore {
+    font-size: 2.5em;
+    padding: 20px;
+    height: 100px;
+    width: 150px;
     text-align: center;
 }
 
