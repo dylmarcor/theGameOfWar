@@ -1,4 +1,4 @@
-// var cat = "cat"
+var cat = "cat"
 
 // $(function() {
 
@@ -49,12 +49,12 @@ function battle() {
         } else {
             if (playerOne.length > 2) {
                 console.log("Player 1 wins!");
-                $('#draw').attr('disabled','disabled')
+                $('#draw').prop('disabled', true)
                 p1WinCounter++;
                 render();
             } else {
                 console.log("Player 2 wins!");
-                $('#draw').attr('disabled','disabled')
+                $('#draw').prop('disabled', true)
                 p2WinCounter++;
                 render();
             }
@@ -86,13 +86,13 @@ function goToWar(p1, p2) {
 
 function checkWinner() {
     if (playerOne.length === 0) {
-        $('#draw').prop('disabled', false)
+        $('#draw').prop('disabled', true)
         console.log("Player 2 wins!")
         p2WinCounter++;
         render();
         return 1;
     } else if (playerTwo.length === 0) {
-        $('#draw').prop('disabled', false)
+        $('#draw').prop('disabled', true)
         p1WinCounter++;
         render();
         console.log("Player 1 wins!")
@@ -103,10 +103,33 @@ function checkWinner() {
 }
 
 function render() {
-    $('.right-deck').html(playerTwo.length)
-    $('.left-deck').html(playerOne.length)
-    $('.left-player').html(playerOne[0])
-    $('.right-player').html(playerTwo[0])
+    if (playerOne[0] === playerTwo[0]) {
+        $('.battefield').text("GO TO WAR!!!");
+    }
+    if (playerOne[0] === 14) {
+        $('.left-player').text('A');
+    } else if (playerOne[0] === 13) {
+        $('.left-player').text('K');
+    } else if (playerOne[0] === 12) {
+        $('.left-player').text('Q');
+    } else if (playerOne[0] === 11) {
+        $('.left-player').text('J');
+    } else {
+        $('.left-player').text(playerOne[0])
+    }
+    if (playerTwo[0] === 14) {
+        $('.right-player').text('A');
+    } else if (playerTwo[0] === 13) {
+        $('.right-player').text('K');
+    } else if (playerTwo[0] === 12) {
+        $('.right-player').text('Q');
+    } else if (playerTwo[0] === 11) {
+        $('.right-player').text('J');
+    } else {
+        $('.right-player').text(playerTwo[0])
+    }
+    $('.right-deck').html('Deck:<br>' + playerTwo.length)
+    $('.left-deck').html('Deck:<br>' + playerOne.length)
     $('#p1win').html(parseInt(p1WinCounter))
     $('#p2win').html(parseInt(p2WinCounter))
 }
@@ -119,6 +142,8 @@ function resetBoard() {
     $('#draw').prop('disabled', false)
     init();
     render();
+    // $('.right-player').html('<img src="images/cardback.jpg" alt="Card Back">');
+    // $('.left-player').html('<img src="images/cardback.jpg" alt="Card Back">');
 }
 
 function init() {
