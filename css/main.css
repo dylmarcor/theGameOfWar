@@ -2,6 +2,7 @@ html, body {
     margin: 0;
     height: 100%;
     background: linear-gradient(#660D06, #FF3502);
+    font-family: 'Bungee', cursive;
 }
 
 button {
@@ -10,6 +11,50 @@ button {
     margin: 0 auto;
     cursor: pointer;
 }
+
+.enter {
+    text-decoration: none;
+    text-align: justify;
+    font-size: 15em;
+}
+
+.title {
+    font-family: 'Times New Roman', Times, serif;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    color: inherit;
+    text-align: center;
+}
+
+.enter:visited {
+    color: white;
+}
+
+.enter:hover {
+    animation-name: flash;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+}
+
+@keyframes flash {
+    from {color: white;}
+    to {color: red;}
+}
+
+.centered {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .container {
     display: flex;
@@ -30,7 +75,7 @@ button {
 
 .left-player {
     color: red;
-    font-size: 3.6em;
+    font-size: 12em;
     text-align: center;
     margin: auto;
     height:200px;
@@ -41,10 +86,12 @@ button {
 .battlefield {
     margin: auto;
     text-align: center;
+    font-size: 5em;
+    color: rgba(0,0,0,.23);
 }
 
 .right-player {
-    font-size: 3.6em;
+    font-size: 12em;
     text-align: center;
     margin: auto;
     height:200px;

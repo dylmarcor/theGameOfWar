@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
     <title>Game of War</title>
     <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -13,15 +14,20 @@
     <script async defer src="js/main.js"></script>
 </head>
 <body>
+    <div class="title">
+        <a href="#" class="enter"><p class="centered">WAR</p></a>
+    </div>
+
+
     <div class="container">
         <div class="leftscore">Player 1:<br><span id="p1win">0</span></div>
         <div class="container2">
-        <div class="left-player"></div>
+        <div class="left-player"> </div>
         <div class="left-deck">Deck:<br>0</div>
         </div>
-        <div class="battlefield">!</div>
+        <div class="battlefield">WAR</div>
         <div class="container3">
-        <div class="right-player"></div>
+        <div class="right-player"> </div>
         <div class="right-deck">Deck:<br>
             0</div>
         </div>
@@ -29,7 +35,7 @@
     </div>
     
     
-    <footer class="container-reset"><button class="button" id="draw">DRAW</button><div class"display">Winn</div>
+    <footer class="container-reset"><button class="button" id="draw">DRAW</button><div class"display"></div>
         <button class="button" id="reset">RESET</button></footer>
 </body>
 </html>

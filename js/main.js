@@ -7,19 +7,16 @@ var startDeck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
     2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
     2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
-// var displayDeck = [".dA", ".dK", ".dQ", ".dJ", ".d10", ".d09", ".d08", ".d07", ".d06", ".d05", ".d04", ".d04", ".d03", ".d02",
-//     ".hA", ".hK", ".hQ", ".hJ", ".h10", ".h09", ".h08", ".h07", ".h06", ".h05", ".h04", ".h04", ".h03", ".h02",
-//     ".sA", ".sK", ".sQ", ".sJ", ".s10", ".s09", ".s08", ".s07", ".s06", ".s05", ".s04", ".s04", ".s03", ".s02",
-//     ".cA", ".cK", ".cQ", ".cJ", ".c10", ".c09", ".c08", ".c07", ".c06", ".c05", ".c04", ".c04", ".c03", ".c02",]
-
-// var startDeck = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
-
 Array.prototype.randomElement = function () {
     return this[Math.floor(Math.random() * this.length)]
 }
 
 $('#reset').on('click', resetBoard)
 $('#draw').on('click', battle)
+
+$('.enter').click(function() {
+    $(this).parent().fadeOut(2000);
+})
 
 var playerOne = [],
     playerTwo = [],
@@ -36,8 +33,6 @@ function createDeck() {
     playerTwo = hold;
 }
 
-
-
 function battle() {
     checkWinner();
     render();
@@ -48,12 +43,10 @@ function battle() {
             goToWar(p1, p2);
         } else {
             if (playerOne.length > 2) {
-                console.log("Player 1 wins!");
                 $('#draw').prop('disabled', true)
                 p1WinCounter++;
                 render();
             } else {
-                console.log("Player 2 wins!");
                 $('#draw').prop('disabled', true)
                 p2WinCounter++;
                 render();
@@ -64,12 +57,14 @@ function battle() {
         playerOne.push(p1)
         playerOne.push(p2)
         warChest = [];
+        $('.right-player').delay(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).animate({opacity: 0})
         checkWinner();
-    } else {
+    } else { 
         if (warChest.length > 0) { playerTwo = playerTwo.concat(warChest) }
         playerTwo.push(p1)
         playerTwo.push(p2)
         warChest = [];
+        $('.left-player').delay(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).animate({opacity: 0})
         checkWinner();
     }
 }
@@ -104,46 +99,58 @@ function checkWinner() {
 
 function render() {
     if (playerOne[0] === playerTwo[0]) {
-        $('.battefield').text("GO TO WAR!!!");
+        $('.battefield').html("GO TO WAR!!!");
     }
     if (playerOne[0] === 14) {
-        $('.left-player').text('A');
+        $('.left-player').text('A').animate({opacity: 100});
     } else if (playerOne[0] === 13) {
-        $('.left-player').text('K');
+        $('.left-player').text('K').animate({opacity: 100});
     } else if (playerOne[0] === 12) {
-        $('.left-player').text('Q');
+        $('.left-player').text('Q').animate({opacity: 100});
     } else if (playerOne[0] === 11) {
-        $('.left-player').text('J');
+        $('.left-player').text('J').animate({opacity: 100});
     } else {
-        $('.left-player').text(playerOne[0])
+        $('.left-player').text(playerOne[0]).animate({opacity: 100})
     }
     if (playerTwo[0] === 14) {
-        $('.right-player').text('A');
+        $('.right-player').text('A').animate({opacity: 100});
     } else if (playerTwo[0] === 13) {
-        $('.right-player').text('K');
+        $('.right-player').text('K').animate({opacity: 100});
     } else if (playerTwo[0] === 12) {
-        $('.right-player').text('Q');
+        $('.right-player').text('Q').animate({opacity: 100});
     } else if (playerTwo[0] === 11) {
-        $('.right-player').text('J');
+        $('.right-player').text('J').animate({opacity: 100});
     } else {
-        $('.right-player').text(playerTwo[0])
+        $('.right-player').text(playerTwo[0]).animate({opacity: 100})
+    }
+    if (playerOne.length <= 0) {
+        $('.display').text('Player Two WINS!')
+    }
+    if (playerTwo.length <= 0) {
+        $('.display').text('Player One WINS!')
     }
     $('.right-deck').html('Deck:<br>' + playerTwo.length)
     $('.left-deck').html('Deck:<br>' + playerOne.length)
     $('#p1win').html(parseInt(p1WinCounter))
     $('#p2win').html(parseInt(p2WinCounter))
+    
+    
+
+}
+
+function renderBoard() {
+    $('.left-player').text(' ');
+    $('.right-player').text(' ');
 }
 
 function resetBoard() {
-    console.log("Board Reset")
     playerOne = [];
     playerTwo = [];
     warChest = [];
     $('#draw').prop('disabled', false)
     init();
     render();
-    // $('.right-player').html('<img src="images/cardback.jpg" alt="Card Back">');
-    // $('.left-player').html('<img src="images/cardback.jpg" alt="Card Back">');
+    renderBoard();
 }
 
 function init() {
