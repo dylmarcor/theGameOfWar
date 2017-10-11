@@ -1,6 +1,6 @@
 # Game of War
 ## Intro
-Game of war is a minimal, stylized version of the classic card game War. They say only the dead have see the end of war...
+Game of war is a minimal, stylized version of the classic card game War. They say only the dead see the end of war...
 ## How To Play
 Gameplay is very simple:
 * The deck is split evenly and each player draws at the same time.
