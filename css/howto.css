@@ -37,7 +37,7 @@ html, body {
     color: white;
 }
 
-.back:hover {
+.backÏ:hover {
     animation-name: flash;
     animation-duration: 0.2s;
     animation-timing-function: linear;
