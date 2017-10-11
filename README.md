@@ -12,4 +12,11 @@ Gameplay is very simple:
 ![War03](images/war3.png)
 ![War02](images/war2.png)
 ## Development
-This game was made by Dylan Marcus Corbett 2017.
+### Technologies Used
+* Javascript/jQuery
+* HTML/CSS
+This game was created by Dylan Marcus Corbett 2017.
+## Future plans
+* Implement more graphic features for Go To War.
+* Add more speed to the animations, no lag time between.
+* Animate battle.
