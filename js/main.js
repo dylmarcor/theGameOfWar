@@ -1,6 +1,6 @@
+//$(function() { 
 
-
-// $(function() {
+// STATE
 
 var startDeck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
     2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
@@ -11,6 +11,8 @@ Array.prototype.randomElement = function () {
     return this[Math.floor(Math.random() * this.length)]
 }
 
+// EVENT LISTENERS
+
 $('#reset').on('click', resetBoard)
 $('#draw').on('click', battle)
 
@@ -19,6 +21,8 @@ $('.enter').click(function () {
 })
 
 $('.enter').animate({ opacity: 100 }, 30000)
+
+// CONSTANTS 
 
 var playerOne = [],
     playerTwo = [],
@@ -34,6 +38,8 @@ function createDeck() {
     playerOne = hold.splice(0, 26);
     playerTwo = hold;
 }
+
+//  FUNCTIONS
 
 function battle() {
     checkWinner();
