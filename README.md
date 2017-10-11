@@ -8,7 +8,7 @@ Gameplay is very simple:
 * If cards match, three more are drawn face down, and both players draw again. Whoever has highest wins the entire pile. This goes as long as matches are turned.
 * The game ends when one player has no more cards left or not enough to go to War.
 ## Screenshots
-[War01](images/war1.png)
-[War02](images/war2.png)
+![War01](images/war1.png)
+![War02](images/war2.png)
 ## Development
 This game was made by Dylan Marcus Corbett 2017.
