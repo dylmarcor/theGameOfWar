@@ -1,4 +1,4 @@
-var cat = "cat"
+
 
 // $(function() {
 
@@ -17,6 +17,8 @@ $('#draw').on('click', battle)
 $('.enter').click(function() {
     $(this).parent().fadeOut(2000);
 })
+
+$('.enter').animate({opacity: 100}, 30000)
 
 var playerOne = [],
     playerTwo = [],
@@ -40,14 +42,18 @@ function battle() {
     var p2 = playerTwo.shift();
     if (p1 === p2) {
         if (playerOne.length > 2 && playerTwo.length > 2) {
+            $('.battlefield').text('WAR').animate({color: 'white'}).fadeIn(80).fadeOut(80).fadeIn(80).fadeOut(80).fadeIn(80).fadeOut(80).fadeIn(80).animate({color: 'white'})
+            setTimeout(2000);
             goToWar(p1, p2);
         } else {
             if (playerOne.length > 2) {
                 $('#draw').prop('disabled', true)
+                $('.battlefield').html('P 1<br>WINS')
                 p1WinCounter++;
                 render();
             } else {
                 $('#draw').prop('disabled', true)
+                $('.battlefield').html('P 2<br>WINS')
                 p2WinCounter++;
                 render();
             }
@@ -82,15 +88,15 @@ function goToWar(p1, p2) {
 function checkWinner() {
     if (playerOne.length === 0) {
         $('#draw').prop('disabled', true)
-        console.log("Player 2 wins!")
+        $('.battlefield').html('P 2<br>WINS!')
         p2WinCounter++;
         render();
         return 1;
     } else if (playerTwo.length === 0) {
         $('#draw').prop('disabled', true)
+        $('.battlefield').html('P 1<br>WINS')
         p1WinCounter++;
         render();
-        console.log("Player 1 wins!")
         return 2;
     } else {
         return 0;
@@ -98,9 +104,6 @@ function checkWinner() {
 }
 
 function render() {
-    if (playerOne[0] === playerTwo[0]) {
-        $('.battefield').html("GO TO WAR!!!");
-    }
     if (playerOne[0] === 14) {
         $('.left-player').text('A').animate({opacity: 100});
     } else if (playerOne[0] === 13) {
@@ -123,12 +126,6 @@ function render() {
     } else {
         $('.right-player').text(playerTwo[0]).animate({opacity: 100})
     }
-    if (playerOne.length <= 0) {
-        $('.display').text('Player Two WINS!')
-    }
-    if (playerTwo.length <= 0) {
-        $('.display').text('Player One WINS!')
-    }
     $('.right-deck').html('Deck:<br>' + playerTwo.length)
     $('.left-deck').html('Deck:<br>' + playerOne.length)
     $('#p1win').html(parseInt(p1WinCounter))
@@ -148,6 +145,7 @@ function resetBoard() {
     playerTwo = [];
     warChest = [];
     $('#draw').prop('disabled', false)
+    $('.battlefield').text('WAR');
     init();
     render();
     renderBoard();

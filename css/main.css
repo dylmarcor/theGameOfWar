@@ -6,16 +6,22 @@ html, body {
 }
 
 button {
+    font-family:  'Bungee', cursive;
     display: block;
     padding: 10px;
     margin: 0 auto;
     cursor: pointer;
+    background-color: red;
+    color: darkred;
+    opacity: 4;
 }
 
 .enter {
     text-decoration: none;
     text-align: justify;
     font-size: 15em;
+    display: block;
+    opacity: 0;
 }
 
 .title {
@@ -34,7 +40,7 @@ button {
     color: white;
 }
 
-.enter:hover {
+.centered:hover {
     animation-name: flash;
     animation-duration: 0.2s;
     animation-timing-function: linear;
@@ -53,6 +59,8 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    padding: 2px;
 }
 
 
@@ -103,6 +111,7 @@ button {
     justify-content: right;
     text-align: center;
     margin: auto;
+    color: #6D0122;
 }
 
 .left-deck {
@@ -110,6 +119,7 @@ button {
     justify-content: left;
     text-align: center;
     margin: auto;
+    color: #6D0122;
 }
 
 .rightscore {
@@ -142,3 +152,19 @@ button {
     margin: 0 auto;
 }
 
+#inst {
+    font-family:  'Bungee', cursive;
+    display: block;
+    padding: 3px;
+    margin: 0 auto;
+    cursor: pointer;
+    background-color: red;
+    color: darkred;
+    opacity: 4;
+    text-decoration: none;
+}
+
+#inst:visited {
+    text-decoration: none;
+    color: inherit;
+}
