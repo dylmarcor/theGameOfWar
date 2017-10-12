@@ -1,6 +1,6 @@
 # Game of War
 ## Intro
-Game of war is a minimal, stylized version of the classic card game War. They say only the dead see the end of war...
+Game of War is a minimal, stylized version of the classic card game War. They say only the dead see the end of war...
 ## How To Play
 Gameplay is very simple:
 * The deck is split evenly and each player draws at the same time.
@@ -15,6 +15,7 @@ Gameplay is very simple:
 ### Technologies Used
 * Javascript/jQuery
 * HTML/CSS
+
 This game was created by Dylan Marcus Corbett 2017.
 ## Future plans
 * Implement more graphic features for Go To War.
