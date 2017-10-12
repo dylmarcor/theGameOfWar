@@ -2,7 +2,7 @@
 ## Intro
 Game of War is a minimal, stylized version of the classic card game War. They say only the dead see the end of war...
 
-![Game Of War](https://dylmarcor.github.io/theGameOfWar)
+[Game Of War](https://dylmarcor.github.io/theGameOfWar)
 ## How To Play
 Gameplay is very simple:
 * The deck is split evenly and each player draws at the same time.
