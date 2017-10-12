@@ -36,6 +36,17 @@ button {
     text-align: center;
 }
 
+.animate {
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
 .enter:visited {
     color: white;
 }
@@ -167,4 +178,22 @@ button {
 #inst:visited {
     text-decoration: none;
     color: inherit;
+}
+
+#gif1 {
+    display: flex;
+    margin: 200px;
+    background-image: url('../images/smokyexplosion.gif');
+    z-index: 10;
+    width: 75px;
+    height: 179px;
+}
+
+#gif2 {
+    display: flex;
+    margin: 200px;
+    background-image: url('../images/smokyexplosion.gif');
+    z-index: 10;
+    width: 75px;
+    height: 179px;
 }

@@ -18,7 +18,10 @@ $('.enter').click(function () {
     $(this).parent().fadeOut(2000);
 })
 
+$('.animate').hide();
+
 $('.enter').animate({ opacity: 100 }, 30000);
+
 
 // CONSTANTS 
 
@@ -81,6 +84,7 @@ function battle() {
 
 
 function goToWar(p1, p2) {
+    showExpl();
     warChest.push(p1);
     warChest.push(p2);
     new Array(3).fill(null).forEach(() => warChest.push(playerOne.shift()));
@@ -138,6 +142,11 @@ function render() {
 
 
 }
+
+function showExpl() {
+    $('.animate').show().fadeOut(3000);
+}
+
 
 function renderBoard() {
     $('.left-player').text(' ');
