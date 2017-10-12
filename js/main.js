@@ -17,7 +17,20 @@ $('.enter').click(function () {
     $(this).parent().fadeOut(2000);
 })
 
+$('#inst').click(function () {
+    $('button').fadeOut(500);
+    $('.container').fadeOut(500);
+    $('.container-info').fadeIn(2000);
+})
+
+$('.back').click(function () {
+    $('.container-info').hide();
+    $('button').show();
+    $('.container').show();
+})
+
 $('.animate').hide();
+$('.container-info').hide();
 
 $('.enter').animate({ opacity: 100 }, 30000);
 
