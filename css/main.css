@@ -183,7 +183,7 @@ button {
 #gif1 {
     display: flex;
     margin: 200px;
-    background-image: url('./images/smokyexplosion.gif');
+    background-image: url('../images/smokyexplosion.gif');
     z-index: 10;
     width: 75px;
     height: 179px;
@@ -192,7 +192,7 @@ button {
 #gif2 {
     display: flex;
     margin: 200px;
-    background-image: url('./images/smokyexplosion.gif');
+    background-image: url('../images/smokyexplosion.gif');
     z-index: 10;
     width: 75px;
     height: 179px;
