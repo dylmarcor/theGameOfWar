@@ -18,6 +18,8 @@ Gameplay is very simple:
 * Javascript/jQuery
 * HTML/CSS
 
+[Trello](https://trello.com/b/6uXg6xDw/game-of-war)
+
 This game was created by Dylan Marcus Corbett 2017.
 ## Future plans
 * Implement more graphic features for Go To War.
